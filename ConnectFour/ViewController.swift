@@ -10,16 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var game = ConnectFour()
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print(game)
+        game.Push(at: 0)
+        game.Push(at: 0)
+        game.Push(at: 0)
+        game.Push(at: 0)
+        print(game)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
