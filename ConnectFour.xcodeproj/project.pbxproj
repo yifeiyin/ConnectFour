@@ -13,6 +13,7 @@
 		EA4A412D2037DE800007858B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4A412C2037DE800007858B /* Assets.xcassets */; };
 		EA4A41302037DE800007858B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4A412E2037DE800007858B /* LaunchScreen.storyboard */; };
 		EA4A413B203A9CEC0007858B /* ConnetFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4A413A203A9CEC0007858B /* ConnetFour.swift */; };
+		EA4A413F203BDDEA0007858B /* TubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4A413E203BDDEA0007858B /* TubeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EA4A412F2037DE800007858B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA4A41312037DE800007858B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4A413A203A9CEC0007858B /* ConnetFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnetFour.swift; sourceTree = "<group>"; };
+		EA4A413E203BDDEA0007858B /* TubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,11 @@
 		EA4A41242037DE800007858B /* ConnectFour */ = {
 			isa = PBXGroup;
 			children = (
-				EA4A41392037DECF0007858B /* Supporting Files */,
+				EA4A413E203BDDEA0007858B /* TubeView.swift */,
 				EA4A41272037DE800007858B /* ViewController.swift */,
 				EA4A41292037DE800007858B /* Main.storyboard */,
 				EA4A413A203A9CEC0007858B /* ConnetFour.swift */,
+				EA4A41392037DECF0007858B /* Supporting Files */,
 				EA4A412C2037DE800007858B /* Assets.xcassets */,
 				EA4A41312037DE800007858B /* Info.plist */,
 			);
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4A413F203BDDEA0007858B /* TubeView.swift in Sources */,
 				EA4A41282037DE800007858B /* ViewController.swift in Sources */,
 				EA4A41262037DE800007858B /* AppDelegate.swift in Sources */,
 				EA4A413B203A9CEC0007858B /* ConnetFour.swift in Sources */,
