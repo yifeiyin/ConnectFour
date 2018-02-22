@@ -10,15 +10,15 @@ import Foundation
 
 class ConnectFour : CustomStringConvertible {
     
-    let Height = 6
-    let numberOfTubes = 7
+    static let Height = 6
+    static let numberOfTubes = 7
     
     var description: String {
         get {
             var output = ""
-            for altitude in stride(from: Height - 1, through: 0, by: -1) {
+            for altitude in stride(from: ConnectFour.Height - 1, through: 0, by: -1) {
                 output += "(X,\(altitude)): "
-                for tubeIndex in 0..<numberOfTubes {
+                for tubeIndex in 0..<ConnectFour.numberOfTubes {
                     var status = ""
                     let content = board[tubeIndex][altitude]
                     switch content {
@@ -32,7 +32,7 @@ class ConnectFour : CustomStringConvertible {
                 output += "\n"
             }
             output += "       "
-            for tubeIndex in 0..<numberOfTubes {
+            for tubeIndex in 0..<ConnectFour.numberOfTubes {
                 output += " \(tubeIndex)  "
             }
             output += "\n"
@@ -64,46 +64,35 @@ class ConnectFour : CustomStringConvertible {
         case ties
     }
     
-    
-
-    
-    lazy private(set) var board = [[CellState]](repeating: [CellState](repeating: .empty, count: Height), count: numberOfTubes)
+    lazy private(set) var board = [[CellState]](repeating: [CellState](repeating: .empty, count: ConnectFour.Height), count: ConnectFour.numberOfTubes)
 
     var gameStatus: Status = .playerInTurn(.A)
     
     var isGameEnded: Bool {
-        get {
-            return gameStatus == .someoneWins(.A) ||
-                gameStatus == .someoneWins(.B) ||
-                gameStatus == .ties
-        }
+        return gameStatus == .someoneWins(.A) ||
+            gameStatus == .someoneWins(.B) ||
+            gameStatus == .ties
     }
     
     var winner: Players? {
-        get {
-            switch gameStatus {
-            case .someoneWins(let winner): return winner
-            default: return nil
-            }
+        switch gameStatus {
+        case .someoneWins(let winner): return winner
+        default: return nil
         }
     }
     
     var currentPlayerInTurn: Players? {
-        get {
-            switch gameStatus {
-            case .playerInTurn(let player): return player
-            default: return nil
-            }
+        switch gameStatus {
+        case .playerInTurn(let player): return player
+        default: return nil
         }
     }
-    
 
     func isPushable(at tubeIndex: Int) -> Bool {
-        if tubeIndex < 0, tubeIndex > numberOfTubes { fatalError("Unexpected value for func isPushable") }
-        
+        if tubeIndex < 0, tubeIndex > ConnectFour.numberOfTubes { fatalError("Unexpected value for func isPushable") }
         if isGameEnded { return false }
         
-        for index in 0..<Height {
+        for index in 0..<ConnectFour.Height {
             if board[tubeIndex][index] == .empty {
                 return true
             }
@@ -114,7 +103,7 @@ class ConnectFour : CustomStringConvertible {
     func Push(at tubeIndex: Int) {
         if !isPushable(at: tubeIndex){ return }
         
-        for altitude in 0..<Height {
+        for altitude in 0..<ConnectFour.Height {
             if board[tubeIndex][altitude] == .empty {
                 board[tubeIndex][altitude] = .occupied(currentPlayerInTurn!)
                 break
