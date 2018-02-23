@@ -88,8 +88,7 @@ class ViewController: UIViewController {
         let width = tubeViews[0].bounds.maxX
         let diameter = width * Constants.DiameterToWidthRatio
         let dis = (width - diameter) / 2 // distance between the edge of the circle and the edge of the tubeView
-        multiplier = (7*(2*dis+diameter))/(7*dis+6*diameter)  // The multiplier should be around 7.0/6.0 = 1.17
-        print("multiplier:\(multiplier)")
+        multiplier = (7*(2*dis+diameter)+6*(stackView.spacing))/(7*dis+6*diameter)  // The multiplier should be around 7.0/6.0 = 1.17
         let constraintOfStackViewAspectRatio =
             NSLayoutConstraint(item: stackView,
                                attribute: NSLayoutAttribute.width,
@@ -101,7 +100,7 @@ class ViewController: UIViewController {
         stackView.addConstraint(constraintOfStackViewAspectRatio)
         UpdateViewFromModel()
         indexOfTubeTouching = nil
-        
+
     }
 }
 
@@ -130,8 +129,8 @@ extension ConnectFour.Status : CustomStringConvertible {
         switch self {
         case .playerInTurn(.A): return "current player: A(blue)"
         case .playerInTurn(.B): return "current player: B(green)"
-        case .someoneWins(.A): return "A wins"
-        case .someoneWins(.B): return "B wins"
+        case .someoneWins(.A): return "A(blue) wins"
+        case .someoneWins(.B): return "B(green) wins"
         case .ties: return "ties"
         }
     }
