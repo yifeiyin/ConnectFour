@@ -111,7 +111,6 @@ class ViewController: UIViewController {
     
     private var game = ConnectFour()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         var multiplier: CGFloat
@@ -130,7 +129,6 @@ class ViewController: UIViewController {
         stackView.addConstraint(constraintOfStackViewAspectRatio)
         UpdateViewFromModel()
         indexOfTubeTouching = nil
-
     }
 }
 
