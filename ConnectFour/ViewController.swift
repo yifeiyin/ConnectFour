@@ -10,13 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var leftPlayerImageView: PlayerIconView!
+    @IBOutlet weak var leftPlayerImageView: UIImageView!
     
-    @IBOutlet weak var rightPlayerImageView: PlayerIconView! {
-        didSet {
-            rightPlayerImageView.currentState = .selected
-        }
-    }
+    @IBOutlet weak var rightPlayerImageView: UIImageView!
     
     @IBOutlet weak var leftPlayerLabel: UILabel!
 
@@ -84,37 +80,33 @@ class ViewController: UIViewController {
     }
     
     func UpdateViewFromModel() {
-
         for tubeIndex in 0..<tubeViews.count {
             tubeViews[tubeIndex].data = game.board[tubeIndex]
             tubeViews[tubeIndex].setNeedsDisplay()
         }
-        
         switch game.gameStatus {
         case .playerInTurn(.A):
-            leftPlayerImageView.CrossDissolveImage(toImage: UIImage(named:"Blue Selected")!, toState: .selected)
-            rightPlayerImageView.CrossDissolveImage(toImage: UIImage(named:"Green Unselected")!, toState: .unselected)
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Unselected")
             promptLabel.text = "waiting for blue"
         case .playerInTurn(.B):
-            leftPlayerImageView.CrossDissolveImage(toImage: UIImage(named:"Blue Unselected")!, toState: .unselected)
-            rightPlayerImageView.CrossDissolveImage(toImage: UIImage(named:"Green Selected")!, toState: .selected)
+            leftPlayerImageView.image = UIImage(named:"Blue Unselected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
             promptLabel.text = "waiting for green"
         case .someoneWins(.A):
-//            leftPlayerImageView.image = UIImage(named:"Blue Selected")
-//            rightPlayerImageView.image = UIImage(named:"Green Unselected")
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Unselected")
             promptLabel.text = "blue wins!"
         case .someoneWins(.B):
-//            leftPlayerImageView.image = UIImage(named:"Blue Unselected")
-//            rightPlayerImageView.image = UIImage(named:"Green Selected")
+            leftPlayerImageView.image = UIImage(named:"Blue Unselected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
             promptLabel.text = "green wins!"
         case .ties:
-//            leftPlayerImageView.image = UIImage(named:"Blue Selected")
-//            rightPlayerImageView.image = UIImage(named:"Green Selected")
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
             promptLabel.text = "draws"
         }
-        //promptLabel.frame = CGRect.zero
         promptLabel.sizeToFit()
-        promptLabel.textAlignment = .center
     }
     
     private var game = ConnectFour()
@@ -127,13 +119,14 @@ class ViewController: UIViewController {
         let diameter = width * Constants.DiameterToWidthRatio
         let dis = (width - diameter) / 2 // distance between the edge of the circle and the edge of the tubeView
         multiplier = (7*(2*dis+diameter)+6*(stackView.spacing))/(7*dis+6*diameter)  // The multiplier should be around 7.0/6.0 = 1.17
-        let constraintOfStackViewAspectRatio = NSLayoutConstraint(item: stackView,
-                                                                  attribute: NSLayoutAttribute.width,
-                                                                  relatedBy: NSLayoutRelation.equal,
-                                                                  toItem: stackView,
-                                                                  attribute: NSLayoutAttribute.height,
-                                                                  multiplier: multiplier,
-                                                                  constant: 0)
+        let constraintOfStackViewAspectRatio =
+            NSLayoutConstraint(item: stackView,
+                               attribute: NSLayoutAttribute.width,
+                               relatedBy: NSLayoutRelation.equal,
+                               toItem: stackView,
+                               attribute: NSLayoutAttribute.height,
+                               multiplier: multiplier,
+                               constant: 0)
         stackView.addConstraint(constraintOfStackViewAspectRatio)
         UpdateViewFromModel()
         indexOfTubeTouching = nil
@@ -173,10 +166,3 @@ extension ConnectFour.Status : CustomStringConvertible {
     }
 }
 
-extension CGRect {
-    func zoom(by scale: CGFloat) -> CGRect {
-        let newHeight = size.height * scale
-        let newWidth = size.width * scale
-        return insetBy(dx: (width - newWidth) / 2, dy: (height - newHeight) / 2)
-    }
-}
