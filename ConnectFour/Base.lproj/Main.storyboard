@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-7D-OXv" userLabel="MasterStackView">
-                                <rect key="frame" x="0.0" y="199.33333333333334" width="375" height="423.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-7D-OXv" userLabel="MasterStackView">
+                                <rect key="frame" x="0.0" y="179.33333333333334" width="375" height="463.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tmy-GG-7lJ" userLabel="PromptStack">
                                         <rect key="frame" x="18.666666666666657" y="0.0" width="337.66666666666674" height="88.333333333333329"/>
@@ -36,8 +36,8 @@
                                                             <constraint firstAttribute="width" secondItem="7bo-Or-s7Y" secondAttribute="height" multiplier="1:1" id="7Ev-WO-TQG"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-Vf-GED" userLabel="LeftPlayerLabel">
-                                                        <rect key="frame" x="13.999999999999996" y="67.999999999999972" width="36.333333333333329" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-Vf-GED" userLabel="LeftPlayerLabel">
+                                                        <rect key="frame" x="15.666666666666671" y="68" width="33" height="20.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="tGk-LQ-6iD"/>
                                                         </constraints>
@@ -63,8 +63,8 @@
                                                             <constraint firstAttribute="height" constant="64" id="efh-B4-Phz"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnX-RV-Ovj" userLabel="RightPlayerLabel">
-                                                        <rect key="frame" x="14.000000000000004" y="67.999999999999972" width="36.333333333333343" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="green" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnX-RV-Ovj" userLabel="RightPlayerLabel">
+                                                        <rect key="frame" x="10" y="68" width="44" height="20.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="GXR-Ab-HDb"/>
                                                         </constraints>
@@ -80,7 +80,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zOn-9C-ppC" userLabel="TubeStacks">
-                                        <rect key="frame" x="9.3333333333333428" y="118.33333333333337" width="356.33333333333326" height="305"/>
+                                        <rect key="frame" x="9.3333333333333428" y="108.33333333333337" width="356.33333333333326" height="305"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ai-yK-evt" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="305"/>
@@ -122,10 +122,18 @@
                                             <constraint firstAttribute="width" secondItem="zOn-9C-ppC" secondAttribute="height" multiplier="7:6" placeholder="YES" id="oSl-be-5hf"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9b-Iu-nd3">
+                                        <rect key="frame" x="150" y="433.33333333333326" width="75" height="30"/>
+                                        <state key="normal" title="New Game"/>
+                                        <connections>
+                                            <action selector="newGameButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ua-ye-1BM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tmy-GG-7lJ" firstAttribute="width" secondItem="zOn-9C-ppC" secondAttribute="width" multiplier="0.95" id="H37-g1-AHS"/>
                                     <constraint firstItem="zOn-9C-ppC" firstAttribute="width" secondItem="wLA-7D-OXv" secondAttribute="width" multiplier="0.95" id="bTZ-pZ-7ZX"/>
+                                    <constraint firstItem="w9b-Iu-nd3" firstAttribute="top" secondItem="zOn-9C-ppC" secondAttribute="bottom" constant="20" id="cbO-46-eo2"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -142,6 +150,7 @@
                     <connections>
                         <outlet property="leftPlayerImageView" destination="7bo-Or-s7Y" id="ROr-do-L6D"/>
                         <outlet property="leftPlayerLabel" destination="r1C-Vf-GED" id="FlP-WP-Z9f"/>
+                        <outlet property="newGameButton" destination="w9b-Iu-nd3" id="2l4-zU-xoi"/>
                         <outlet property="promptLabel" destination="3cP-Bb-AMx" id="FwH-WG-d9f"/>
                         <outlet property="rightPlayerImageView" destination="Ylu-Qp-A6t" id="V95-el-y68"/>
                         <outlet property="rightPlayerLabel" destination="bnX-RV-Ovj" id="CWc-an-s8k"/>

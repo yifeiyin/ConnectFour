@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var promptLabel: UILabel!
     
+    @IBOutlet weak var newGameButton: UIButton!
+    
     @IBOutlet var tubeViews: [TubeView]!
 
     @IBOutlet weak var stackView: UIStackView! {
@@ -31,6 +33,41 @@ class ViewController: UIViewController {
             longPress.numberOfTouchesRequired = 1
             stackView.addGestureRecognizer(longPress)
         }
+    }
+    
+    @IBAction func newGameButtonPushed(_ sender: Any) {
+        struct newGameAnimationConstants {
+            static let duration: TimeInterval = 0.15
+            static let timeOffset: TimeInterval = 0.2
+        }
+  
+// Alternative Animation, simpler, faster
+//
+//        for index in 0..<tubeViews.count {
+//            UIView.transition(with: tubeViews[index],
+//                              duration: newGameAnimationConstants.duration,
+//                              options: [UIViewAnimationOptions.transitionFlipFromLeft],
+//                              animations: {
+//                                [unowned self] in self.game.ClearTube(at: index)
+//                                self.UpdateViewFromModel()
+//                                }
+//            )
+//        }
+        
+        func Animate(at index: Int) {
+            if index >= tubeViews.count { return }
+            UIView.transition(with: tubeViews[index],
+                              duration: newGameAnimationConstants.duration,
+                              options: [UIViewAnimationOptions.transitionFlipFromLeft],
+                              animations: {
+                                [unowned self] in self.game.ClearTube(at: index)
+                                self.UpdateViewFromModel()
+                                },
+                              completion: index == tubeViews.count ? { (Bool) in self.game.ResetGame() } : { (Bool) in Animate(at: index+1) }
+            )
+        }
+        Animate(at: 0)
+        UpdateViewFromModel()
     }
     
     @objc func HandleLongPress(_ sender: UITapGestureRecognizer) {

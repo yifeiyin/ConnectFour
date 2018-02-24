@@ -85,6 +85,15 @@ class ConnectFour : CustomStringConvertible {
         default: return nil
         }
     }
+    
+    func ClearTube(at index: Int) {
+        board[index] = [CellState](repeating: .empty, count: ConnectFour.Height)
+    }
+    
+    func ResetGame() {
+        board = [[CellState]](repeating: [CellState](repeating: .empty, count: ConnectFour.Height), count: ConnectFour.numberOfTubes)
+        gameStatus = .playerInTurn(.A)
+    }
 
     func isPushable(at tubeIndex: Int) -> Bool {
         if tubeIndex < 0, tubeIndex > ConnectFour.numberOfTubes { fatalError("Unexpected value for func isPushable") }
@@ -111,8 +120,8 @@ class ConnectFour : CustomStringConvertible {
         SwitchPlayer()
         CheckIfAnyoneWins()
     }
-
-     func CheckIfAnyoneWins() {
+    
+    func CheckIfAnyoneWins() {
         for indexCode in 0..<WinningCoordinateCombinations.numberOfCases {
             let coordinates = WinningCoordinateCombinations.getCoordinates(indexCode: indexCode)
             var tubeIndices = Array(repeating: 0, count: 4)
