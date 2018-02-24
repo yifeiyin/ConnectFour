@@ -23,16 +23,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-7D-OXv" userLabel="MasterStackView">
                                 <rect key="frame" x="0.0" y="199.33333333333334" width="375" height="423.33333333333326"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tmy-GG-7lJ" userLabel="PromptStack">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tmy-GG-7lJ" userLabel="PromptStack">
                                         <rect key="frame" x="18.666666666666657" y="0.0" width="337.66666666666674" height="88.333333333333329"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Du6-j6-afA" userLabel="LeftPlayerStack">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="88.333333333333329"/>
+                                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Du6-j6-afA" userLabel="LeftPlayerStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="64.333333333333329" height="88.333333333333329"/>
                                                 <subviews>
-                                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-Or-s7Y" userLabel="LeftPlayerImageView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-Or-s7Y" userLabel="LeftPlayerImageView" customClass="PlayerIconView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="64.333333333333329" height="64"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="64" id="37Z-lr-upO"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="37Z-lr-upO"/>
                                                             <constraint firstAttribute="width" secondItem="7bo-Or-s7Y" secondAttribute="height" multiplier="1:1" id="7Ev-WO-TQG"/>
                                                         </constraints>
                                                     </imageView>
@@ -47,20 +47,23 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-Bb-AMx" userLabel="PromptLabel">
-                                                <rect key="frame" x="145" y="32.333333333333314" width="48" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-Bb-AMx" userLabel="PromptLabel">
+                                                <rect key="frame" x="64.333333333333329" y="32.333333333333314" width="209.33333333333337" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" priority="750" constant="1000" id="Xq9-FR-I4W"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4fk-oo-Iob" userLabel="RightPlayerStack">
+                                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4fk-oo-Iob" userLabel="RightPlayerStack">
                                                 <rect key="frame" x="273.66666666666663" y="0.0" width="64" height="88.333333333333329"/>
                                                 <subviews>
-                                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ylu-Qp-A6t" userLabel="RightPlayerImageView">
+                                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ylu-Qp-A6t" userLabel="RightPlayerImageView" customClass="PlayerIconView" customModule="ConnectFour" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Ylu-Qp-A6t" secondAttribute="height" multiplier="1:1" id="Kc2-Mm-0qM"/>
-                                                            <constraint firstAttribute="height" constant="64" id="efh-B4-Phz"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="64" id="efh-B4-Phz"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnX-RV-Ovj" userLabel="RightPlayerLabel">
@@ -80,7 +83,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zOn-9C-ppC" userLabel="TubeStacks">
-                                        <rect key="frame" x="9.3333333333333428" y="118.33333333333337" width="356.33333333333326" height="305"/>
+                                        <rect key="frame" x="9.6666666666666572" y="118.33333333333337" width="355.66666666666674" height="305"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ai-yK-evt" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="305"/>
@@ -98,22 +101,22 @@
                                                 <gestureRecognizers/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IP-Vt-crf" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
-                                                <rect key="frame" x="153" y="0.0" width="50.333333333333343" height="305"/>
+                                                <rect key="frame" x="153" y="0.0" width="49.666666666666657" height="305"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <gestureRecognizers/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-mk-Gbs" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
-                                                <rect key="frame" x="204.33333333333331" y="0.0" width="50" height="305"/>
+                                                <rect key="frame" x="203.66666666666669" y="0.0" width="50" height="305"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <gestureRecognizers/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2X-xI-p15" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
-                                                <rect key="frame" x="255.33333333333337" y="0.0" width="50" height="305"/>
+                                                <rect key="frame" x="254.66666666666663" y="0.0" width="50" height="305"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <gestureRecognizers/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-Mn-3TJ" customClass="TubeView" customModule="ConnectFour" customModuleProvider="target">
-                                                <rect key="frame" x="306.33333333333337" y="0.0" width="50" height="305"/>
+                                                <rect key="frame" x="305.66666666666663" y="0.0" width="50" height="305"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <gestureRecognizers/>
                                             </view>
@@ -126,6 +129,7 @@
                                 <constraints>
                                     <constraint firstItem="tmy-GG-7lJ" firstAttribute="width" secondItem="zOn-9C-ppC" secondAttribute="width" multiplier="0.95" id="H37-g1-AHS"/>
                                     <constraint firstItem="zOn-9C-ppC" firstAttribute="width" secondItem="wLA-7D-OXv" secondAttribute="width" multiplier="0.95" id="bTZ-pZ-7ZX"/>
+                                    <constraint firstItem="3cP-Bb-AMx" firstAttribute="centerX" secondItem="wLA-7D-OXv" secondAttribute="centerX" id="yCM-ht-BHG"/>
                                 </constraints>
                             </stackView>
                         </subviews>
