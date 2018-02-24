@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func newGameButtonPushed(_ sender: Any) {
         struct newGameAnimationConstants {
-            static let duration: TimeInterval = 0.15
+            static let duration: TimeInterval = 0.3
             static let timeOffset: TimeInterval = 0.2
         }
   
@@ -46,13 +46,14 @@ class ViewController: UIViewController {
 //        for index in 0..<tubeViews.count {
 //            UIView.transition(with: tubeViews[index],
 //                              duration: newGameAnimationConstants.duration,
-//                              options: [UIViewAnimationOptions.transitionFlipFromLeft],
+//                              options: [UIViewAnimationOptions.transitionCurlUp],
 //                              animations: {
 //                                [unowned self] in self.game.ClearTube(at: index)
 //                                self.UpdateViewFromModel()
 //                                }
 //            )
 //        }
+//        game.ResetGame()
         
         func Animate(at index: Int) {
             if index >= tubeViews.count { return }
@@ -67,6 +68,7 @@ class ViewController: UIViewController {
             )
         }
         Animate(at: 0)
+        
         UpdateViewFromModel()
     }
     
