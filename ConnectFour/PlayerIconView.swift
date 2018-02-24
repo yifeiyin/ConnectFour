@@ -15,6 +15,7 @@ class PlayerIconView: UIImageView {
     func CrossDissolveImage(toImage image: UIImage, toState: State) {
         var factor: CGFloat
         switch (self.currentState, toState) {
+            // problematic
         case (.selected, .selected): factor = 1
         case (.unselected, .unselected): factor = 1
         case (.selected, .unselected): factor = AnimationConstants.zoomFactor
