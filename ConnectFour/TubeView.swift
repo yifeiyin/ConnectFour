@@ -45,8 +45,8 @@ extension TubeView {
     {
         switch cellState {
         case .empty: return ( #colorLiteral(red: 0.9402408004, green: 0.9499949813, blue: 0.956296742, alpha: 1) , #colorLiteral(red: 0.8465040326, green: 0.8763965964, blue: 0.8895147443, alpha: 1) )
-        case .occupied(.A): return ( #colorLiteral(red: 0.3643351197, green: 0.8083514571, blue: 0.9759570956, alpha: 1) , #colorLiteral(red: 0, green: 0.7235352397, blue: 0.9667306542, alpha: 1) ) // blue
-        case .occupied(.B): return ( #colorLiteral(red: 0.3536864519, green: 0.7271710634, blue: 0.3864591122, alpha: 1) , #colorLiteral(red: 0.3154432178, green: 0.6761108041, blue: 0.3486095965, alpha: 1) ) // green
+        case .occupied(.A): return ( #colorLiteral(red: 0.3647058824, green: 0.8078431373, blue: 0.9764705882, alpha: 1) , #colorLiteral(red: 0, green: 0.608522296, blue: 0.8547416329, alpha: 1) ) // blue
+        case .occupied(.B): return ( #colorLiteral(red: 0.3536864519, green: 0.7271710634, blue: 0.3864591122, alpha: 1) , #colorLiteral(red: 0.2666389048, green: 0.613206923, blue: 0.300658226, alpha: 1) ) // green
         }
     }
 }

@@ -10,6 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var leftPlayerImageView: UIImageView!
+    
+    @IBOutlet weak var rightPlayerImageView: UIImageView!
+    
+    @IBOutlet weak var leftPlayerLabel: UILabel!
+
+    @IBOutlet weak var rightPlayerLabel: UILabel!
+    
+    @IBOutlet weak var promptLabel: UILabel!
+    
     @IBOutlet var tubeViews: [TubeView]!
 
     @IBOutlet weak var stackView: UIStackView! {
@@ -22,8 +32,6 @@ class ViewController: UIViewController {
             stackView.addGestureRecognizer(longPress)
         }
     }
-    
-    @IBOutlet weak var gameStatusLabel: UILabel!
     
     @objc func HandleLongPress(_ sender: UITapGestureRecognizer) {
         var indexOfTubeTouchingLocal: Int?
@@ -76,7 +84,29 @@ class ViewController: UIViewController {
             tubeViews[tubeIndex].data = game.board[tubeIndex]
             tubeViews[tubeIndex].setNeedsDisplay()
         }
-        gameStatusLabel.text = game.gameStatus.description
+        switch game.gameStatus {
+        case .playerInTurn(.A):
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Unselected")
+            promptLabel.text = "waiting for blue"
+        case .playerInTurn(.B):
+            leftPlayerImageView.image = UIImage(named:"Blue Unselected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
+            promptLabel.text = "waiting for green"
+        case .someoneWins(.A):
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Unselected")
+            promptLabel.text = "blue wins!"
+        case .someoneWins(.B):
+            leftPlayerImageView.image = UIImage(named:"Blue Unselected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
+            promptLabel.text = "green wins!"
+        case .ties:
+            leftPlayerImageView.image = UIImage(named:"Blue Selected")
+            rightPlayerImageView.image = UIImage(named:"Green Selected")
+            promptLabel.text = "draws"
+        }
+        promptLabel.sizeToFit()
     }
     
     private var game = ConnectFour()
